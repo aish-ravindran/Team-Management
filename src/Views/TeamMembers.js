@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import MemberCard from '../Components/MemberCard'
+import React, { useEffect, useState } from 'react';
+import MemberCard from '../Components/MemberCard';
 import './TeamMember.css';
 export default function TeamMembers() {
     const [data, setData] = useState([]);
@@ -7,7 +7,7 @@ export default function TeamMembers() {
     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
-        fetch('/memberData.json') // Assuming data.json is in the public folder
+        fetch('/memberData.json')
             .then(response => response.json())
             .then(data => {
                 setData(data)
@@ -30,37 +30,37 @@ export default function TeamMembers() {
 
     return (
         <div className='page-clr'>
-            <div className='row header-clr p-3'>
-                <div className='col-8'><h2 class>Team</h2></div>
-                <div className='col-4'>
+            <div className='row header-clr px-5'>
+                <div className='col-8'><h2 className='page-hdr'>Team</h2></div>
+                <div className="col-4 input-icons ">
+                    <i className="fa fa-search icon-color"></i>
                     <input
                         type="text"
-                        className="form-control rounded-6"
-                        placeholder="Search by name"
+                        className="form-control input-field"
+                        placeholder="Search"
                         value={searchTerm}
                         onChange={handleSearch}
                     />
                 </div>
-
             </div>
             <div className='card-hdr p-5'>
-            <h3 className='container-title'>Administrators</h3>
-            <div class="row">
-                {filteredData && filteredData.filter(user => user.role === 'admin').map((adminData) => <div class="col-3">
-                    <MemberCard data={adminData} />
+                <h3 className='container-title'>Administrators</h3>
+                <div className="row">
+                    {filteredData && filteredData.filter(user => user.role === 'admin').map((adminData) => <div key={adminData.email} className="col-md-3 col-sm-6 my-2">
+                        <MemberCard data={adminData} />
+                    </div>
+                    )}
                 </div>
-                )}
-            </div>
-            <hr></hr>
-            <h3 className='container-title'>Members</h3>
-            <div class="row">
-                {filteredData && filteredData.filter(user => user.role === 'member').map((memberData) => <div class="col-3">
-                    <MemberCard data={memberData} />
+                <hr></hr>
+                <h3 className='container-title'>Members</h3>
+                <div className="row">
+                    {filteredData && filteredData.filter(user => user.role === 'member').map((memberData) => <div key={memberData.email} className="col-md-3 col-sm-6 my-2">
+                        <MemberCard data={memberData} />
+                    </div>
+                    )}
                 </div>
-                )}
             </div>
-            </div>
-           
+
         </div>
 
 

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import TeamMembers from './Views/TeamMembers';
 

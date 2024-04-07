@@ -1,8 +1,33 @@
-.page-clr{
-    background-color: #F9F9FB;
-}
-.header-clr{
+.header-clr {
     background-color: #8AA2F0;
     color: white;
     text-align: left;
+    padding-left: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.icon-color {
+    padding: 10px;
+    color: black;
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field {
+    border-radius: 3rem !important;
+    padding-left: 3rem !important;
+}
+
+input::placeholder {
+    font-size: 0.75rem;
 }
